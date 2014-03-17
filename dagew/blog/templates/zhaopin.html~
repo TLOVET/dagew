@@ -1,0 +1,45 @@
+{% extends "base.html" %} 
+{% block content %}
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>
+      
+         <div style="background-color:#FDEEDA;"><b>诚聘英才</b></div><br />
+         <div>
+			<table class="table table-hover">
+			<tr><th>营养师（高薪）</th></tr>
+			<tr><td>1、有营养师资格证</td></tr>
+			<tr><td>2、对食疗养生有深刻认识</td></tr>
+			<tr><td>3、对食物营养熟悉</td></tr>
+			<tr><td>4、对营养均衡有深刻了解</td></tr>
+			<tr><td>5、了解亚健康与食疗的关系</td></tr>
+			</table> <br />
+			
+			<table class="table table-hover">
+			<tr><th>送餐员（高薪）</th></tr>
+			<tr><td>1、善于沟通，有良好的人际关系；有创新意识和闯劲</td></tr>
+			<tr><td>2、有独立开发客户和维护客户的能力</td></tr>
+			<tr><td>3、有良好的服务意识和技巧</td></tr>
+			<tr><td>4、形象佳，综合素质良好</td></tr>
+			<tr><td>5、能吃苦耐劳</td></tr>
+			</table>
+			<p>网站正处于发展阶段，急需有志之士的加入，以上职位待遇从优，高于行业薪资水平。</p>  
+			<p>电话：88026978</p>   
+         </div>
+         
+        
+        </div>
+{% endblock %}
+      
+      

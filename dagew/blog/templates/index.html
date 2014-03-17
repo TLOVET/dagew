@@ -1,0 +1,62 @@
+{% extends "base.html" %} 
+{% block content %}
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        
+        	
+        <div  class="span9" style='border:#FDEEDA solid 1px;'  id="dier">
+           <div id="myCarousel" class="carousel slide">
+				  <ol class="carousel-indicators">
+				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="1"></li>
+				    <li data-target="#myCarousel" data-slide-to="2"></li>
+				    <li data-target="#myCarousel" data-slide-to="3"></li>
+				  </ol>
+				  <!-- Carousel items -->
+				  <div class="carousel-inner">
+				    <div class="active item"><a href="/dingcan/?restaurant=祖母的厨房(五道口店)" ><img style="width: 8000px; height: 180px;" src="/static/img/zumodechufang.jpg"  width="350" height="120" ></a></div>
+				    <div class="item"><a href="/dingcan/?restaurant=锦观府餐厅" ><img style="width: 8000px; height: 180px;" src="/static/img/jingguanfu.jpg"  width="350" height="120" ></a></div>
+					 <div class="item"><a href="/dingcan/?restaurant=黑松白鹿(海淀万柳店)" ><img style="width: 8000px; height: 180px;" src="/static/img/heisongbailu.jpg"  width="350" height="120" ></a></div>				    
+				    <div class="item"><a href="/dingcan/?restaurant=重庆杨家火锅" ><img style="width: 8000px; height: 180px;" src="/static/img/yangjiahuoguo.jpg"  width="350" height="120" ></a></div>
+				  </div>
+				  <!-- Carousel nav -->
+				  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+       
+         <div style='border:#FDEEDA solid 1px;'>
+         <div style="background-color:#FDEEDA;"><b>菜品推荐</b></div><br />
+				<ul class="thumbnails">
+				{%for dish in dishs%}
+					{%ifequal 5 forloop.counter%}
+						<li class="span3" style="margin-left: 0px;">					
+						<a href="/dingcan/?restaurant={{dish.restaurant}}"><img  style="width: 260px; height: 180px;" src="/static/{{dish.dish_img}}"></a><br />
+						菜名：{{dish.dish_name}}<br />
+			         价格：￥{{dish.dish_price}}<br />
+						来自：{{dish.restaurant}}</li>	
+					{%else%}
+						<li class="span3">					
+						<a href="/dingcan/?restaurant={{dish.restaurant}}"><img  style="width: 260px; height: 180px;" src="/static/{{dish.dish_img}}"></a><br />
+						菜名：{{dish.dish_name}}<br />
+			         价格：￥{{dish.dish_price}}<br />
+						来自：{{dish.restaurant}}</li>	
+					{%endifequal%}
+				{%endfor%}
+				</ul>  
+				 
+			
+			 </div>
+         </div>  
+{% endblock %}
+      
+      

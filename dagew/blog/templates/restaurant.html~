@@ -1,0 +1,62 @@
+{% extends "base.html" %} 
+{% block content %}
+        			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+			
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>
+         <div style='border:#FDEEDA 1px;'>   
+         <div style="background-color:#FDEEDA;"><b>查询条件</b></div><br />
+			<div> <b>所在区域：</b>
+			 <a href="/restaurant/" ><b>全部</b></a>&nbsp;
+			 <a href="/restaurant/?area=hd&category={{req.GET.category}}" ><b>海淀</b></a>&nbsp; 
+			 <a href="/restaurant/?area=ft&category={{req.GET.category}}" ><b>丰台</b></a>&nbsp; 
+			 <a href="/restaurant/?area=cy&category={{req.GET.category}}" ><b>朝阳</b></a></div><br />
+			<div> <b>餐厅分类：</b>
+			 <a href="/restaurant/?area={{req.GET.area}}&category=" ><b>全部</b></a>&nbsp; 
+			 <a href="/restaurant/?area={{req.GET.area}}&category=zs" ><b>中式餐厅</b></a>&nbsp; 
+			 <a href="/restaurant/?area={{req.GET.area}}&category=xc" ><b>西餐</b></a>&nbsp; 
+			 <a href="/restaurant/?area={{req.GET.area}}&category=rb" ><b>日本料理</b></a></div><br />
+         </div>
+         <br />
+         <div style='border:#FDEEDA solid 1px;'>
+         	<table class="table table-hover">
+         	<tr><th>餐厅图片</th><th>餐厅名称</th><th>餐厅地址</th><th>#</th></tr>
+         	{%for restaurant in comments.object_list %}
+				 <tr><td><a href="/dingcan/?restaurant={{restaurant.restaurant_name}}" ><img style="width: 200px; height: 150px;" src="/static/{{restaurant.restaurant_img}}" alt="" width="130" height="100" ></a></td>
+				 <td>{{restaurant.restaurant_name}}</td>
+				 <td>{{restaurant.restaurant_address}}</td>
+				 <td><input type="button" value="我要订餐" onclick="location.assign('/dingcan/?restaurant={{restaurant.restaurant_name}}')"></input></td>
+				 </tr>
+				 {%endfor%}
+				</table>
+				<div style="margin-left: 298px;">
+				{% if comments.has_previous %}
+						<a href="?page={{comments.previous_page_number}}" title='上一页'>上一页</a>
+					{% endif %}
+					
+					{% for p in page_range %}
+						{% ifequal p comments.number %}
+							<span>{{p}}</span>
+						{% else %}
+							<a href="?page={{p}}" title="第{{p}}页" >{{p}}</a>
+						{% endifequal %}
+					{%endfor%}
+					
+					{% if comments.has_next %}
+						<a href="?page={{comments.next_page_number}}" title="下一页" >下一页</a>
+					{% endif %}
+					</div>
+         </div>
+   
+        </div>
+{% endblock %}

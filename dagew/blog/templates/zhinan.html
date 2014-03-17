@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block content %}
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>
+        <div style="background-color:#FDEEDA;"><b>订餐指南</b></div><br /><br /><br />
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="/static/img/yewu.png" alt="" ></div><br /><br /><br />
+         <div><img src="/static/img/liucheng.jpg" alt="" > </div>      
+        </div>
+{% endblock %}
+      
+      

@@ -1,0 +1,185 @@
+{% extends "base.html" %} 
+{% block content %}       
+			
+	<div id='dingczn' style='border:#FDEEDA solid 1px;'>
+     <div style="background-color:#FDEEDA;">
+			<b>订餐配送信息</b> <b style="margin-left: 68px;"><a href='#' >提交订单</a></b></div>
+          
+         <form class="form-inline" method="post" action='/index/'>
+         	<table>
+				<tr><td>姓名:</td><td><input type="text" name="username" class="input-mini" id="text_username"></td></tr>
+			   <tr><td>区域:</td><td><input type="text" name="password" class="input-medium" id="text_area"></td></tr>
+			 	<tr><td>地址:</td><td><input type="text" name="address" class="input-medium" id="text_address"></td></tr>
+			   <tr><td>电话:</td><td><input type="text" name="tel" class="input-medium" id="text_tel"></td></tr>
+			   <tr><td>备注:</td><td><input type="text" name="remark" class="input-medium" id="text_remark"></td></tr>
+			   </table>
+			</form>
+		
+			</div>
+			<br />
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+		<div style="background-color:#FDEEDA;">
+			<b>我的购物车</b> 
+        <b style="margin-left: 115px;"><a onclick="qingkong()" href="">清空</a></b></div>
+          
+				<table class="table table-hover" id="table_1">
+					<tr><th>菜名</th><th>单价</th><th>数量</th><th>小计</th></tr>
+					<tr id="tr_1"></tr>
+					<tr><td>合计：</td><td><a href="#">提交</a></td></tr>
+				</table>
+			</div>
+        	</div>
+        	
+        <div id='dier' class="span9" style='border:#FDEEDA solid 1px;'>
+        {%if canting%}
+       
+         <div style='border:#FDEEDA 1px; '>   
+         <div style="background-color:#FDEEDA;"><b>查询条件</b></div><br />
+			<div> <b>菜品分类：</b> 
+				<a href="" id="a1" ><b>全部</b></a>&nbsp; 
+				<a href="" id="a2"><b>特色小炒</b></a>&nbsp; 
+				<a href="" id="a3"><b>精品凉菜</b></a>&nbsp; 
+				<a href="" id="a4" ><b>经典快餐</b></a>&nbsp; 
+				<a href="" id="a5" ><b>甜品冷饮</b></a>&nbsp;
+				<a href="" id="a6" ><b>火锅涮菜</b></a>&nbsp; 
+				<a href="" id="a7" ><b>刺身</b></a></div><br />
+			<div> <b>排序：</b> 
+				<a href="" id="a8"><b>默认</b></a>&nbsp; &nbsp;&nbsp;
+				<a href="" id="a9"><b>价格↓</b></a>&nbsp;&nbsp;&nbsp; 
+				<a href="" id="a10"><b>价格↑</b></a></div><br />        
+         </div>
+         
+          {%else%}
+          
+          <div style='border:#FDEEDA 1px; '>   
+         <div style="background-color:#FDEEDA;"><b>查询条件</b></div><br />
+			<div> <b>菜品分类：</b> 
+				<a href="/dingcan/" ><b>全部</b></a>&nbsp; 
+				<a href="/dingcan/?category=xc&price={{req.GET.price}}" ><b>特色小炒</b></a>&nbsp; 
+				<a href="/dingcan/?category=lc&price={{req.GET.price}}" ><b>精品凉菜</b></a>&nbsp; 
+				<a href="/dingcan/?category=kc&price={{req.GET.price}}" ><b>经典快餐</b></a>&nbsp; 
+				<a href="/dingcan/?category=ly&price={{req.GET.price}}" ><b>甜品冷饮</b></a>&nbsp;
+				<a href="/dingcan/?category=sc&price={{req.GET.price}}" ><b>火锅涮菜</b></a>&nbsp; 
+				<a href="/dingcan/?category=cs&price={{req.GET.price}}" ><b>刺身</b></a></div><br />
+			<div> <b>排序：</b> 
+				<a href="/dingcan/?category={{req.GET.category}}&price=" ><b>默认</b></a>&nbsp; &nbsp;&nbsp;
+				<a href="/dingcan/?category={{req.GET.category}}&price=big" ><b>价格↓</b></a>&nbsp;&nbsp;&nbsp; 
+				<a href="/dingcan/?category={{req.GET.category}}&price=small"><b>价格↑</b></a></div><br />        
+         </div>
+         
+         {%endif%}
+         <div style='border:#FDEEDA solid 1px;'>
+				<div><b id="huan" style="color:red;"></b> 
+				<b id="dizhi" style="color:red;margin-left: 130px;"></b></div>
+				<table class="table table-hover">
+         	<tr><th>菜品图片</th><th>菜品名称</th><th>菜品价格</th><th>数量</th><th>餐厅名称</th><th>#</th></tr>
+         	{%for dish in comments.object_list %}
+				 <tr><td><img style="width: 200px; height: 150px;"  src="/static/{{dish.dish_img}}" alt="" width="130" height="100" ></td>
+				 <td>{{dish.dish_name}}</td>
+				 <td>￥{{dish.dish_price}}</td>
+				 <td>
+						<select id="shu{{forloop.counter0}}" class="span12">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						</select>
+								 
+				 
+				 </td>
+				 <td><a href="/dingcan?restaurant={{dish.restaurant}}">{{dish.restaurant}}</a></td>
+				 <td><input type="button" value="订购" onclick='ok({{forloop.counter0}})' id='bu_ding{{forloop.counter0}}')></input></td>
+				 </tr>
+				 {%endfor%}
+				 </table>
+					
+				<div style="margin-left: 305px;">
+				{% if comments.has_previous %}
+						<a href="?page={{comments.previous_page_number}}" title='上一页'>上一页</a>
+					{% endif %}
+					
+					{% for p in page_range %}
+						{% ifequal p comments.number %}
+							<span>{{p}}</span>
+						{% else %}
+							<a href="?page={{p}}" title="第{{p}}页" >{{p}}</a>
+						{% endifequal %}
+					{%endfor%}
+					
+					{% if comments.has_next %}
+						<a href="?page={{comments.next_page_number}}" title="下一页" >下一页</a>
+					{% endif %}
+					</div>					
+					
+				<script type="text/javascript" >					
+					orders='';
+					qians=0;
+					function ok(a){	
+						var obj=document.getElementById('shu'+a);
+						var shu=obj.selectedIndex;
+												
+					if(document.getElementById("bu_ding"+a).value=="已订购")	
+						{alert('你已经订购了该菜品！清查看购物车！')}
+					else{			
+						if(document.getElementById('text_address').value){
+							xmlreq=new XMLHttpRequest();
+							xmlreq.onreadystatechange=function()
+							{if(xmlreq.readyState==4 && xmlreq.status==200)
+							 		 {if(xmlreq.responseText.slice(0,2)=="ok"){					
+							    		document.getElementById("bu_ding"+a).value="已订购";
+							    		order=(xmlreq.responseText.slice(2))
+							    		//var dishs="{{order|escapejs}}"
+										//var dishs=eval("("+order+")")
+							    		//alert(dishs)
+							    		//table=document.getElementById('tr_1')
+							    		//table.innerHTML='';
+							    		//for(i=0;i<dishs.length;i++){	
+							    		//	table.innerHTML+='<td>'+dishs[i].name+'</td><td>%s</td><td>%s</td><td>%s</td>';	
+							    			
+							    	//	}
+										orders+=order;	
+							    		document.getElementById('table_1').innerHTML='';
+							    		document.getElementById('table_1').innerHTML='<tr><th>菜名</th><th>单价</th><th>数量</th><th>小计</th></tr>';											    		
+							    		document.getElementById('table_1').innerHTML+=orders;					    		
+							    		document.getElementById('table_1').innerHTML+="<tr><td id='heji'>合计：</td><td><a href='' id='tijiao_order'>提交</a></td></tr>";	
+							    		qian=document.getElementById('qian'+a).innerHTML;
+							    		qians+=parseFloat(qian);
+							    		document.getElementById('heji').innerHTML='合计：'+qians;
+							    		remark=document.getElementById('text_remark').value;
+							    		document.getElementById('tijiao_order').href="/user/?remark="+remark;
+															
+									}
+								}
+							}
+					}	
+					   else{alert('请先登录!')}		
+							xmlreq.open("POST","/order/",true);
+							xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+							xmlreq.send('id='+a+'&'+'shu='+eval(shu+1));					
+					}
+					}
+					function qingkong(){orders='';}
+					
+					var canting="{{canting|escapejs}}"
+					var canting=eval("("+canting+")")
+					document.getElementById('huan').innerHTML='欢迎来到'+canting.name;
+					document.getElementById('dizhi').innerHTML='地址：'+canting.dizhi;
+					document.getElementById('a1').href='/dingcan/?restaurant='+canting.name;
+					document.getElementById('a2').href='/dingcan/?restaurant='+canting.name+'&category=xc&price={{req.GET.price}}';
+					document.getElementById('a3').href='/dingcan/?restaurant='+canting.name+'&category=lc&price={{req.GET.price}}';
+					document.getElementById('a4').href='/dingcan/?restaurant='+canting.name+'&category=kc&price={{req.GET.price}}';
+					document.getElementById('a5').href='/dingcan/?restaurant='+canting.name+'&category=ly&price={{req.GET.price}}';
+					document.getElementById('a6').href='/dingcan/?restaurant='+canting.name+'&category=sc&price={{req.GET.price}}';
+					document.getElementById('a7').href='/dingcan/?restaurant='+canting.name+'&category=cs&price={{req.GET.price}}';
+					document.getElementById('a8').href='/dingcan/?restaurant='+canting.name+'&category={{req.GET.category}}&price=';
+					document.getElementById('a9').href='/dingcan/?restaurant='+canting.name+'&category={{req.GET.category}}&price=big';
+					document.getElementById('a10').href='/dingcan/?restaurant='+canting.name+'&category={{req.GET.category}}&price=small';
+				</script>
+         </div>
+        
+        </div>
+      
+{% endblock %}
+      
+      

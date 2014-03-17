@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% block content %}
+			
+	<div id='huiyuan' style='border:#FDEEDA solid 1px;'>
+      <div style="background-color:#FDEEDA;">
+      <i class="icon-user"></i>&nbsp;</i><b>会员中心</b><br /></div>
+          	<ul>
+					<li id="li_1"><em></em><a href='.'><label for="li_1">我的订单</label></a></li>
+					<li id="li_2"><em></em><a href='/update/'><label for="li_1">修改密码</label></a></li>
+					<li id="li-3"><em></em><a href=''><label for="li_1">找回密码</label></a></li>
+					<li id="li-4"><em></em><a href='/duihuan/'><label for="li_1">积分兑换</label></a></li>
+					<li id="li_5"><em></em><a href='/guize/'><label for="li_1">积分规则</label></a></li>
+				</ul>
+					
+			</div>
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>
+         <div style='border:#FDEEDA 1px; height:187px;'>   
+        		<div style="background-color:#FDEEDA;"><b>会员中心</b></div><br />
+					{%if req.user.is_authenticated %}       			
+        			<table class="table table-hover"> 
+        				<tr bgcolor="#F6E1C5"><th>我的订单记录</th></tr>
+        				<tr bgcolor="#F8F3E8"><th>订单号</th><th>用户名</th><th>菜单</th><th>兑换的商品</th><th>总计</th><th>联系方式</th><th>订餐时间</th></tr>
+        				{%for order in orders%}
+						<tr><td>{{forloop.counter}}</td><td>{{user}}</td><td>{{order.menu}}</td><td>{{order.totil}}</td>
+						<td>{{user.get_profile.tel}}</td>
+						<td>{{order.time.year}}-{{order.time.month}}-{{order.time.day}}&nbsp;&nbsp;&nbsp;{{order.time.hour}}:{{order.time.minute}}:{{order.time.second}}</td></tr>
+						{%endfor%}
+        			</table>
+        			{%endif%}
+         </div>
+         
+         
+        
+        </div>
+{% endblock %}
+      
+      

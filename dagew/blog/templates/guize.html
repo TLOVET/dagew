@@ -1,0 +1,72 @@
+{% extends "base.html" %} 
+{% block content %}
+			
+	<div id='huiyuan' style='border:#FDEEDA solid 1px;'>
+      <div style="background-color:#FDEEDA;">
+      <i class="icon-user"></i>&nbsp;</i><b>会员中心</b><br /></div>
+          	<ul>
+					<li id="li_1"><em></em><a href='/user/'><label for="li_1">我的订单</label></a></li>
+					<li id="li_2"><em></em><a href='/update/'><label for="li_1">修改密码</label></a></li>
+					<li id="li-3"><em></em><a href=''><label for="li_1">找回密码</label></a></li>
+					<li id="li-4"><em></em><a href='/duihuan/'><label for="li_1">积分兑换</label></a></li>
+					<li id="li_5"><em></em><a href='/guize/'><label for="li_1">积分规则</label></a></li>
+				</ul>
+					
+			</div>
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>
+         <div style='border:#FDEEDA 1px;'>   
+        <div style="background-color:#FDEEDA;"><b>积分规则</b></div><br />
+				<table class="table table-hover">
+					<tr><th>一、如何获得积分？</th></tr>
+					<tr><td>1、注册积分：注册成功并完善个人信息（用户中心中个人资料，包括真实姓名、联系电话、地址）赠送10积分；</td></tr>
+					<tr><td>2、订餐积分：交易成功一次消费1元赠送1积分;</td></tr>
+					<tr><th>注意：</th></tr>
+					<tr><td>1、必须注册才可以获得积分；</td></tr>
+					<tr><td>2、必须在网上登录后，在线下订单才可以获得积分。当日所得积分只能次日在积分商城中消费。</td></tr>	
+				</table>
+				<table class="table table-hover" >
+					<tr><th>二、如何查询积分？</th></tr>
+					<tr><td>1、网上查询：用户名登录后在用户名下方可查看到您的积分；</td></tr>
+					<tr><td>2、在会员中心与积分商城左侧导航栏点击积分兑换可查看到您的积分；</td></tr>
+				</table>
+				<table class="table table-hover">
+					<tr><th>三、如何兑换礼品？</th></tr>	
+					<tr><td>1、兑换条件：必须是“打嗝网”已注册个人会员，积分一定得达到礼品兑换的数；</td></tr>
+					<tr><td>2、兑换方法：在积分商城里挑选您所要兑换的物品，提交订单，等待“打嗝网”工作人员与您核实信息，即可完成物品兑换；</td></tr>
+					<tr><td>3、积分相关：在您使用积分兑现物品后，我们的积分系统会从您的有效积分中扣减掉奖品所需积分；</td></tr>			
+				</table>
+				<table class="table table-hover">
+					<tr><th>四、积分的有效期是多长时间呢？</th></tr>
+					<tr><td>1、根据“打嗝网”积分的相关规定，积分计划目前不受任何时间的限制，积分累积则长期有效。您随时可通过“打嗝网”积分商城兑换指定物品；</td></tr>
+					<tr><td>2、如果您在使用中还有其他疑问，请拨打客服电话：88026978或者联系客服QQ：925723861；</td></tr>				
+				</table>
+				<table class="table table-hover">
+					<tr><th>五、相关说明 </th></tr>	
+					<tr><td>1、对于注册会员用户采取包括虚假、技术手段盗取、欺骗或其他明显妨碍平台正常交易等方式获得的积分，【打嗝网】将予以积分处罚直至取消会员资格；并追究对“打嗝网”造成的经济损失赔偿;</td></tr>	
+					<tr><td>2、【打嗝网】用户积分回报内容、积分运算规则等相关事宜如有变化，以“打嗝网”网站最新公布版本为准。请您随时关注，网址：<a href="http://dagew.sinaapp.com">http://www.dagew.com</a></td></tr>
+					<tr><td>3、以上全部规则“打嗝网”拥有最终解释权，并保留随时变动积分规则的权利；</td></tr>		
+				</table>
+				<table class="table table-hover">
+					<tr><th></th></tr>				
+				</table>
+         </div>
+         
+         
+        
+        </div>
+{% endblock %}
+      
+      

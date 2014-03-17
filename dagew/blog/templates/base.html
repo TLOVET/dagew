@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <title>打嗝网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="root" >
+
+    <!-- Le styles -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <style type="text/css">
+      /* Custom container */
+		body{background-color: #FF911A;}
+      
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+		a {color:black;}
+		a:hover {color:#FF911A;font-size: 110%;}
+		
+		i:hover {font-size: 110%;}
+      em{ 
+      border:6px solid;   border-color:#fff #fff #fff #ff911a; float:left; margin-top:3px
+      }
+      ul li { list-style:none;}
+		#end  a {color:black;}
+		#end  a:hover {color:blue;;;font-size: 110%;}
+		#dingcan ul{margin-left: 0.8px;}
+		#dingcan ul li{border-bottom: 0.5px solid #FDEEDA;}
+		#dingcan label:hover{color:#FF911A;;font-size: 100%;}
+		#huiyuan ul{margin-left: 0.8px;}
+		#huiyuan ul li{border-bottom: 0.5px solid #FDEEDA;}
+		#huiyuan label:hover{color:#FF911A;;font-size: 100%;}
+		
+    </style>
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.bootcss.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+  
+		
+	<div class="container" id="main">
+
+      <div class="masthead">
+       <img src='/static/img/tou.jpg'></img>
+			<div style='background-color:white; border:solid 1px #FDEEDA;'>
+				<b style='color:red;'id='dangqiantime'></b>
+				&nbsp;&nbsp;&nbsp;<b style='color:red;'id='xingqi'></b>					
+				<b style="margin-left: 435px;">服务邮箱：<a style='color:red;' href="mailto:dagew@sina.com">dagew@sina.com</a>&nbsp;
+				客服电话：<i style='color:red;'>88082013</i></b>
+					<script type="text/javascript" >
+						mydate=new Date()
+						var a='';	
+						if(mydate.getDay()==0){a='日'}	
+						if(mydate.getDay()==1){a='一'}							
+						if(mydate.getDay()==2){a='二'}	
+						if(mydate.getDay()==3){a='三'}	
+						if(mydate.getDay()==4){a='四'}	
+						if(mydate.getDay()==5){a='五'}	
+						if(mydate.getDay()==6){a='六'}	
+						document.getElementById('xingqi').innerHTML='星期'+a;
+						document.getElementById('dangqiantime').innerHTML='今天是'+mydate.getFullYear()+'年'+eval(mydate.getMonth()+1)+'月'+mydate.getDate()+'日';
+					</script>			
+			</div>
+        <div class="navbar">
+          <div  class="navbar-inner">
+            <div  class="container" >
+              <ul class="nav" >
+                <li class="active"><a href="/index/">首页</a></li>
+					 <li class="active"><a href="/restaurant/">餐厅详情</a></li>
+                <li class="active"><a href="/dingcan/">我要订餐</a></li>
+					 <li class="active"><a href="/zhinan/">订餐指南</a></li>
+					 <li class="active"><a href="/user/">会员中心</a></li>
+					 <li class="active"><a href="/jifen/">积分商城</a></li>
+                <li class="active"><a href="/notice/">活动公告</a></li>
+					 <li class="active"><a href="/women/">关于我们</a></li>
+					 <li class="active"><a href="/zhaopin/">诚聘英才</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+        <div style='background-color:white; border:solid 1px #FDEEDA;'>
+       	<i class='icon-fire'></i>&nbsp;<a href='#' id='a_url'><span id='notice' onmouseover=stp() onmouseout=sta()></span> </a>
+        </div>
+			<script>
+				var notice="{{notice|escapejs}}"
+				var notice=eval("("+notice+")")	
+				var id=0;
+				function shownotice(){
+				   document.getElementById('notice').innerHTML=notice[id].content;
+				   document.getElementById('a_url').href=notice[id].url;
+				   id++;
+				   if (id > notice.length-1){
+				       id = 0;}}
+				xunhuan=setInterval('shownotice()', 2000);
+				function sta(){
+				xunhuan=setInterval('shownotice()', 2000);
+				}
+				function stp(){
+				clearInterval(xunhuan)
+				}
+			</script>        
+        
+      </div>
+
+
+
+      <!-- Jumbotron -->
+      <div class="row-fluid" name='tie' style='background-color:white;'>
+    
+      <div class="span3">
+       
+        <div id='denglu' style='border:#FDEEDA solid 1px;'>
+        {%if req.user.is_authenticated %}
+        
+       <div style="background-color:#FDEEDA;">
+			<i class="icon-user"></i>&nbsp;<b>会员登录</b>
+         <input type='button' class="btn btn-warning" value='订单查询' onclick="location.assign('/user/')" style="border-width: 0px; padding: 0px; margin-left: 85px;"></input></div>
+         <i class='icon-home'></i>&nbsp;欢迎您，<b id='denglu_username'>{{user.username}}</b><br /><br />
+        <i class='icon-calendar'></i> &nbsp;积分：<b>{{user.get_profile.credit}}分</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='/duihuan/'> <b style='color:#FF911A;'>兑换</b> </a><br /><br />
+         <i class='icon-user'></i>&nbsp;<a href='/user/'>会员中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='/update/'>修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a href='/logout/'>退出</a>
+          <br /><br />
+          
+			{%else%}
+			
+			<div  style="background-color:#FDEEDA;">
+			<i class="icon-user"></i>&nbsp;<b>会员登录</b>
+         <input type='button' class="btn btn-warning" value='订单查询' onclick='order_select_1()' style="border-width: 0px; padding: 0px; margin-left: 85px;"></input></div>
+          <br />
+			<form class="form-inline" method="POST" action='/login/'>
+			 <b>帐号:&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="text" name="username" class="input-medium" placeholder="Email"><br /><br />
+			   <b>密码:&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="password" name="password" class="input-medium" placeholder="Password"><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="checkbox">
+			  <input type="checkbox"><b> Remember me</b>
+			  </label><br />
+			  
+			   <input type="submit" class="btn btn-warning" value="登录" style="margin-left:3px;" ></input>
+			  &nbsp;
+			  <input type="button" class="btn btn-warning" onclick="zhuce();" value="注册" style="margin-left:5px;"/>
+				&nbsp;
+			<input type="button" class="btn btn-info" onclick="location.assign('/#/')" value="忘记密码"style="margin-left:1px;" />
+			</form>
+			{%endif%}
+			 <script type="text/javascript" >
+
+						function order_select_1(){
+							xmlreq=new XMLHttpRequest();
+							xmlreq.onreadystatechange=function()
+							{if(xmlreq.readyState==4 && xmlreq.status==200)
+							    {if(xmlreq.responseText=="no_select"){
+							    	document.getElementById("dier").innerHTML=
+										"<div  style='background-color:#FDEEDA;'><i class='icon-user'></i>&nbsp;<b>订单查询</b></div><form method='POST' action='/#/'><table><tr><td><b>订餐姓名:</b></td><td><input type='text' name='username' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>订餐电话:</b></td><td><input type='text' name='password' class='input-xlarge'/></td><br /><br /></tr><tr><td><input type='submit' value='查询' class='btn btn-warning'></input></td></tr></table></form>"
+							   	}
+								}
+							}
+
+								xmlreq.open("POST","/order_select/",true);
+								xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+								xmlreq.send(null);
+						}														
+					</script>
+	</div>	
+    <br />
+    <div id='dingcan' style='border:#FDEEDA solid 1px;'>
+      <div style="background-color:#FDEEDA;">
+     <i class="icon-question-sign"></i>&nbsp;<b>订餐指南</b><br /></div><br />
+          	<ul>
+					<em></em><li id="li_1"><a href='/zhinan/'><label for="li_1">业务流程</label></a></li>
+					<em></em><li id="li_2"><a href='#'><label for="li_2">订餐步骤</label></a></li>
+					<em></em><li id="li_3"><a href='#'><label for="li_3">订餐时间</label></a></li>
+					<em></em><li id="li_4"><a href='/notice/'><label for="li_4">优惠活动</label></a></li>
+					<em></em><li id="li_5"><a href='/women/'><label for="li_5">关于我们</label></a></li>
+				</ul>
+
+			</div><br />
+        {% block content %}{% endblock %}
+        
+       
+   
+    
+		
+ 		</div>
+
+ 		<div id="end">
+		 <hr style='color:#ff911a;'></hr>
+			<label style=' text-align: center;'>
+			<a href='/women/'>关于我们</a> |
+			<a href='/zhaopin/'>诚聘英才</a> |
+			<a href='/zhinan/'>订餐指南</a> |
+			<a href='/women/'>意见反馈</a> |
+			<a href='/women/'>网站声明</a> |
+			<a href='/dingcan/'>我要订餐</a> |
+			<a href='/user/'>会员中心</a> |
+			<a href='/jifen/'>积分商城</a> |
+			客服时间：9：00-20：00
+			</label>
+			<label style=' text-align: center;'> Company 2013 &nbsp; &nbsp;&nbsp; &nbsp;www.dagew.com&nbsp; &nbsp;&nbsp; &nbsp;技术支持：北京中谷教育
+			</label>
+			 <label style=' text-align: center;'>京ICP备09001956号sss </label>
+    	</div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdnjs.bootcss.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+   <script type="text/javascript" >
+
+						function zhuce(){
+							xmlreq=new XMLHttpRequest();
+							xmlreq.onreadystatechange=function()
+							{if(xmlreq.readyState==4 && xmlreq.status==200)
+							    {if(xmlreq.responseText=="zhuce"){
+							    	document.getElementById("dier").innerHTML=
+							    	"<div  style='background-color:#FDEEDA;'><i class='icon-user'></i>&nbsp;<b>用户注册</b></div><form method='POST' action='/regist_1/'><table><tr><td><b>用户名:</b></td><td><input type='text' name='username' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>密码:</b></td><td><input type='password' name='password' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>确认密码:</b></td><td><input type='password' name='password' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>Email:</b></td><td><input type='text' name='email' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>区域:</b></td><td><input type='text' name='area' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>地址:</b></td><td><input type='text' name='address' class='input-xlarge'/></td><br /><br /></tr><tr><td><b>联系方式:</b></td><td><input type='text' name='tel' class='input-xlarge'/></td><br /><br /></tr><tr><td><input type='submit' value='注册' class='btn btn-warning'></input></td></tr></table></form>"
+							  
+							   	}
+								}
+							}
+
+								xmlreq.open("POST","/regist/",true);
+								xmlreq.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+								xmlreq.send(null);
+						}
+						var users="{{users|escapejs}}"
+						var users=eval("("+users+")")
+						document.getElementById('text_username').value=users.username;
+						document.getElementById('text_area').value=users.area;
+						document.getElementById('text_address').value=users.address;
+						document.getElementById('text_tel').value=users.tel;
+																																						
+					</script>
+        
+	
+  </body>
+</html>

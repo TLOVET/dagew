@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block content %}
+
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>  
+         <div style="background-color:#FDEEDA;"><b>关于我们</b></div><br /><br />
+        <div>
+			<p>打嗝网订餐中心是以经营城市快餐配送为主的餐饮网站，本着“健康第一。良心品质”的原则，我们始终把干净卫生、营养可口、快捷迅速的服务放在首位，
+			精细化切配，小锅化烹调，营养化组合。精准快速的把美味送到您的面前。</p>        
+        <table class="table table-hover">
+			<tr><th>经营范围</th></tr>
+			<tr><td>1、有营养师资格证</td></tr>
+			<tr><td>2、对食疗养生有深刻认识</td></tr>
+			<tr><td>3、对食物营养熟悉</td></tr>
+			<tr><td>4、对营养均衡有深刻了解</td></tr>
+			<tr><td>5、了解亚健康与食疗的关系</td></tr>
+			</table><br />
+			<p>地址：北京市海淀区永丰路</p>
+			<p>订餐电话：0576-88026978</p>      
+			<p>网址：<a href="http://dagew.sinaapp.com">http://www.dagew.com</a></p>
+        </div>
+         
+        
+        </div>
+{% endblock %}
+      
+      

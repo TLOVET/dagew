@@ -1,0 +1,68 @@
+{% extends "base.html" %} 
+{% block content %}
+        
+	<div id='huiyuan' style='border:#FDEEDA solid 1px;'>
+      <div style="background-color:#FDEEDA;">
+      <i class="icon-user"></i>&nbsp;<b>会员中心</b><br /></div>  
+          	<ul>
+					<li id="li_1"><em></em><a href='user'><label for="li_1">我的订单</label></a></li>
+					<li id="li_2"><em></em><a href='/update/'><label for="li_1">修改密码</label></a></li>
+					<li id="li-3"><em></em><a href=''><label for="li_1">找回密码</label></a></li>
+					<li id="li-4"><em></em><a href='/duihuan/'><label for="li_1">积分兑换</label></a></li>
+					<li id="li_5"><em></em><a href='/guize/'><label for="li_1">积分规则</label></a></li>
+				</ul>
+
+			</div>
+			
+			<div id='paih' style='border:#FDEEDA solid 1px;'>
+			<div style="background-color:#FDEEDA;">
+           <i class="icon-user"></i>&nbsp;<b>会员积分排行榜</b><br /></div>
+				<table class="table table-hover">
+					<tr><th>排名</th><th>用户</th><th>积分</th></tr>
+					{%for userprofile in userprofiles %}				
+					<tr><td>{{forloop.counter}}</td><td>{{userprofile.user}}</td><td>{{userprofile.credit}}</td></tr>
+					{%endfor%}
+				</table>
+			</div>
+			</div>
+        	
+        <div id="dier" class="span9" style='border:#FDEEDA solid 1px;'>  
+         <div style="background-color:#FDEEDA;"><b>积分商城</b></div><br />
+          <div style='border:#FDEEDA solid 1px;'>
+				<ul class="thumbnails">
+				{%for mall in malls%}
+					{%ifequal 9 forloop.counter%}
+						<li class="span3" style="margin-left: 0px;">
+					   <img  style="width: 200px; height: 150px;" src="/static/{{mall.mall_img}}"><br />
+						{{mall.mall_name}}<br />
+						需要积分：{{mall.mall_credit}}分<br />
+						{%if req.user.is_authenticated%}
+							<a href="/duihuan/?id={{forloop.counter}}" ><b style="color:#FF911A">兑换</b></a>
+						{%endif%}</li>				
+					{%endifequal%}
+					{%ifequal 5 forloop.counter%}
+						<li class="span3" style="margin-left: 0px;">
+					   <img  style="width: 200px; height: 150px;" src="/static/{{mall.mall_img}}"><br />
+						{{mall.mall_name}}<br />
+						需要积分：{{mall.mall_credit}}分<br />
+						{%if req.user.is_authenticated%}
+							<a href="/duihuan/?id={{forloop.counter}}" ><b style="color:#FF911A">兑换</b></a>
+						{%endif%}</li>
+					{%else%}	
+						
+						<li class="span3" >
+					   <img  style="width: 200px; height: 150px;" src="/static/{{mall.mall_img}}"><br />
+						{{mall.mall_name}}<br />
+						需要积分：{{mall.mall_credit}}分<br />
+						{%if req.user.is_authenticated%}
+							<a href="/duihuan/?id={{forloop.counter}}" ><b style="color:#FF911A">兑换</b></a>
+						{%endif%}</li>
+				
+					{%endifequal%}
+				{%endfor%}
+				</ul>  
+			 </div>
+		 </div>
+{% endblock %}
+      
+      
